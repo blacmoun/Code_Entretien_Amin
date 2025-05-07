@@ -2,39 +2,61 @@ from .models import Node
 
 class MindMapManager:
     def __init__(self, root_name):
-        # Cree une nouvelle carte mentale avec un noeud racine
+        # Cree une carte mentale avec un noeud racine
         self.root = Node(root_name)
 
     def add_node(self, parent_name, child_name):
-        # Ajoute un noeud enfant a un noeud parent si la profondeur max n'est pas atteinte
+        # Ajoute un noeud enfant a un noeud parent existant
+        # Verifie que le parent existe, que le nom est unique,
+        # et que le parent n'est pas deja au niveau 2 (max autorise)
+
         parent = self._find_node(self.root, parent_name)
-        if parent:
-            level = self._get_node_level(parent_name)
-            if level is not None and level < 2:  # max 3 niveaux (0, 1, 2)
-                return parent.add_child(Node(child_name))
-        return False
+        if not parent:
+            print("Erreur : parent introuvable.")
+            return False
+
+        if self._find_node(self.root, child_name):
+            print("Erreur : un noeud avec ce nom existe deja.")
+            return False
+
+        level = self._get_node_level(parent_name)
+        if level is not None and level >= 2:
+            print("Erreur : profondeur maximale atteinte.")
+            return False
+
+        parent.add_child(Node(child_name))
+        print("Noeud ajoute.")
+        return True
 
     def remove_node(self, name):
-        # Supprime un noeud par nom, sauf si c'est la racine
+        # Supprime un noeud sauf si c'est la racine
         if self.root.name == name:
             return False
-        return self.root.remove(name)
+
+        # Recherche recursive dans les enfants pour supprimer
+        for i, child in enumerate(self.root.children):
+            if child.name == name:
+                del self.root.children[i]
+                return True
+            if child.remove(name):
+                return True
+        return False
 
     def search(self, name):
-        # Recherche un noeud par nom et retourne son chemin depuis la racine
+        # Recherche un noeud par nom et retourne le chemin
         return self.root.find(name)
 
     def display(self):
-        # Affiche la carte mentale sous forme d'arbre
+        # Affiche la carte sous forme d'arborescence
         self.root.display()
 
     def to_dict(self):
-        # Convertit la carte en dictionnaire (pour sauvegarde JSON)
+        # Convertit l'arbre en dictionnaire (pour JSON)
         return self.root.to_dict()
 
     @staticmethod
     def from_dict(data):
-        # Construit une carte mentale a partir d'un dictionnaire
+        # Cree une carte a partir d'un dictionnaire JSON
         manager = MindMapManager(data["name"])
         manager.root = Node.from_dict(data)
         return manager
@@ -50,7 +72,7 @@ class MindMapManager:
         return None
 
     def _get_node_level(self, target_name, node=None, level=0):
-        # Determine le niveau d'un noeud (profondeur depuis la racine)
+        # Determine le niveau du noeud dans l'arborescence
         if node is None:
             node = self.root
         if node.name == target_name:

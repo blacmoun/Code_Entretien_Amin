@@ -1,7 +1,7 @@
 from mindmap.manager import MindMapManager
 from mindmap.storage import save_mindmap, load_mindmap, list_mindmaps
 
-# Affiche le menu principal avec les choix possibles
+# Affiche le menu des options disponibles
 def print_menu():
     print("\nCommandes :")
     print("1. Creer une carte")
@@ -14,10 +14,10 @@ def print_menu():
     print("8. Quitter")
     print("9. Lister les cartes sauvegardees")
 
-# Fonction principale du programme
+# Fonction principale du programme CLI
 def main():
-    mindmap = None
-    nom_carte = None
+    mindmap = None           # Carte mentale en cours
+    nom_carte = None         # Nom de la carte chargee ou creee
 
     while True:
         print_menu()
@@ -29,17 +29,14 @@ def main():
             mindmap = MindMapManager(nom)
             nom_carte = nom
 
-        # Ajout d'un noeud
+        # Ajout d'un noeud a un noeud parent existant
         elif choix == "2":
             if not mindmap:
                 print("Veuillez d'abord creer une carte.")
                 continue
             parent = input("Nom du parent : ")
             enfant = input("Nom du nouveau noeud : ")
-            if mindmap.add_node(parent, enfant):
-                print("Noeud ajoute.")
-            else:
-                print("Erreur : parent introuvable ou profondeur max atteinte.")
+            mindmap.add_node(parent, enfant)  # Les messages d'erreur sont internes
 
         # Suppression d'un noeud
         elif choix == "3":
@@ -50,7 +47,7 @@ def main():
             if mindmap.remove_node(nom):
                 print("Noeud supprime.")
             else:
-                print("Erreur : noeud introuvable.")
+                print("Erreur : noeud introuvable ou suppression impossible.")
 
         # Affichage de la carte
         elif choix == "4":
@@ -59,7 +56,7 @@ def main():
                 continue
             mindmap.display()
 
-        # Recherche d'un noeud
+        # Recherche d'un noeud par nom
         elif choix == "5":
             if not mindmap:
                 print("Veuillez d'abord creer une carte.")
@@ -71,7 +68,7 @@ def main():
             else:
                 print("Noeud introuvable.")
 
-        # Sauvegarde
+        # Sauvegarde de la carte dans un fichier
         elif choix == "6":
             if not mindmap:
                 print("Aucune carte a sauvegarder.")
@@ -80,7 +77,7 @@ def main():
             save_mindmap(mindmap, nom)
             print("Carte sauvegardee.")
 
-        # Chargement
+        # Chargement d'une carte existante
         elif choix == "7":
             cartes = list_mindmaps()
             if not cartes:
@@ -97,12 +94,12 @@ def main():
             else:
                 print("Erreur : carte introuvable.")
 
-        # Quitter
+        # Quitter le programme
         elif choix == "8":
             print("Au revoir.")
             break
 
-        # Liste des cartes sauvegardees
+        # Liste les cartes sauvegardees dans le dossier
         elif choix == "9":
             cartes = list_mindmaps()
             if cartes:
@@ -112,6 +109,7 @@ def main():
             else:
                 print("Aucune carte sauvegardee.")
 
+        # Option invalide
         else:
             print("Commande inconnue.")
 

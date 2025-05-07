@@ -1,14 +1,22 @@
 {
-  "name": "teste",
+  "name": "7",
   "children": [
     {
-      "name": "teste1",
+      "name": "6",
       "children": [
         {
-          "name": "teste2",
+          "name": "5",
+          "children": []
+        },
+        {
+          "name": "4",
           "children": []
         }
       ]
+    },
+    {
+      "name": "6.5",
+      "children": []
     }
   ]
 }
