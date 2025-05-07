@@ -47,7 +47,9 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+
 Choix : 1
+
 Nom de la carte : exemple
 
 Commandes :
@@ -60,9 +62,13 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+
 Choix : 2
+
 Nom du parent : exemple
+
 Nom du nouveau noeud : code
+
 Noeud ajoute.
 
 Commandes :
@@ -75,9 +81,12 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 4
-- exemple
-  - code
+
+exemple
+
+code
 
 Commandes :
 1. Creer une carte
@@ -89,7 +98,10 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+
+    
 Choix : code
+
 Commande inconnue.
 
 Commandes :
@@ -102,7 +114,9 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : python
+
 Commande inconnue.
 
 Commandes :
@@ -115,9 +129,13 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 2
+
 Nom du parent : exemple
+
 Nom du nouveau noeud : sport
+
 Noeud ajoute.
 
 Commandes :
@@ -130,9 +148,13 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 2
+
 Nom du parent : sport
+
 Nom du nouveau noeud : foot
+
 Noeud ajoute.
 
 Commandes :
@@ -145,11 +167,14 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 4
+
 - exemple
   - code
   - sport
     - foot
+      
 
 Commandes :
 1. Creer une carte
@@ -161,9 +186,13 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 2
+
 Nom du parent : foot
+
 Nom du nouveau noeud : ronaldo
+
 Erreur : profondeur maximale atteinte.
 
 Commandes :
@@ -176,7 +205,9 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 4
+
 - exemple
   - code
   - sport
@@ -192,8 +223,11 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 3
+
 Nom du noeud a supprimer : sport
+
 Noeud supprime.
 
 Commandes :
@@ -206,7 +240,9 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 4
+
 - exemple
   - code
 
@@ -220,9 +256,13 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 2
+
 Nom du parent : code
+
 Nom du nouveau noeud : python
+
 Noeud ajoute.
 
 Commandes :
@@ -235,7 +275,9 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 4
+
 - exemple
   - code
     - python
@@ -250,8 +292,11 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 5
+
 Nom du noeud a rechercher : python
+
 exemple > code > python
 
 Commandes :
@@ -264,8 +309,11 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 6
+
 Nom du fichier de sauvegarde : exemple
+
 Carte sauvegardee.
 
 Commandes :
@@ -278,8 +326,11 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 9
+
 Cartes disponibles :
+
 - blacmoun
 - exemple
 - teste
@@ -294,12 +345,17 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 7
+
 Cartes disponibles :
+
 - blacmoun
 - exemple
 - teste
+  
 Nom de la carte a charger : teste
+
 Carte chargee.
 
 Commandes :
@@ -312,7 +368,9 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 4
+
 - 7
   - 6
     - 5
@@ -329,6 +387,7 @@ Commandes :
 7. Charger
 8. Quitter
 9. Lister les cartes sauvegardees
+    
 Choix : 8
 
 👨‍💻 Auteur
