@@ -7,6 +7,9 @@ Chaque carte est structurée sous forme d’arborescence et limitée à **3 nive
 
 ---
 
+## 👨‍💻 Auteur 
+Ce projet a été réalisé par moi-même dans le cadre d’un test technique développeur 2025 et avec l'aide de chatgpt.
+
 ## 🚀 Installation
 
 ```bash
