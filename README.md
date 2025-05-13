@@ -389,6 +389,3 @@ Commandes :
 9. Lister les cartes sauvegardees
     
 Choix : 8
-
-👨‍💻 Auteur
-Ce projet a été réalisé par moi-même dans le cadre d’un test technique développeur 2025 et avec l'aide de chatgpt.
